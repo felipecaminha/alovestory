@@ -1,4 +1,4 @@
-#!/Users/felipebarros/Felipe/Development/site-webmola/myenv/bin/python3.9
+#!/Users/felipebarros/Felipe/Development/site-webmola/myenv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
