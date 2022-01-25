@@ -19,9 +19,22 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
+                    {% for curso in cursos %}
+                        <!-- Post preview-->
+                        <div class="post-preview">
+                            <a href="{% url 'detalhe_curso' curso.pk %}">
+                                <h2 class="post-title">{{ curso.titulo }}</h2>
+                                <h3 class="post-subtitle">{{ curso.subtitulo }}</h3>
+                            </a>
+                            <p class="post-meta">
+                                Postado por
+                                <b>{{ curso.autor.first_name }}</b>
+                                em {{ curso.data_publicacao|date:"d/m/Y, à\s H:i" }}.
+                            </p>
+                        </div>
+                    {% endfor %}
+                    <!-- Divider-->
+                    <hr class="my-4" />
                 </div>
             </div>
         </div>
