@@ -1,2 +1,2 @@
 Django~=3.2.3
-django_tinymce~=3.4.0
+django-tinymce~=3.4.0
