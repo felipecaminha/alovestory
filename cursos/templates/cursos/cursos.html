@@ -32,9 +32,16 @@
                                 em {{ curso.data_publicacao|date:"d/m/Y, à\s H:i" }}.
                             </p>
                         </div>
+                        {% if not forloop.last %}
+                        <!-- Divider-->
+                        <hr class="my-4" />
+                        {% endif %}
+                        {% empty %}
+                        <div class="post-preview">
+                            <p>Nenhum item cadastrado no momento.</p>
+                        </div>
                     {% endfor %}
-                    <!-- Divider-->
-                    <hr class="my-4" />
+                    
                 </div>
             </div>
         </div>

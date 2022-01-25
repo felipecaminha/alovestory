@@ -4,7 +4,7 @@ from .models import Curso
 
 
 def cursos(request):
-    cursos = Curso.objects.filter(data_publicacao__lte=timezone.now()).order_by('data_publicacao') 
+    cursos = Curso.objects.filter(data_publicacao__lte=timezone.now()).order_by('-data_publicacao') 
     return render(request, 'cursos/cursos.html', {'cursos': cursos})
 
 def detalhe_curso(request, pk):
