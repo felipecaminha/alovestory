@@ -1,49 +1,49 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-    <!-- Page Header-->
-    <header class="masthead" style="background-image: url('/static/assets/img/cursos-bg.jpg')">
-        <div class="container position-relative px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="site-heading">
-                        <h1>Cursos e Congressos</h1>
-                        <span class="subheading">Descrição dessa página</span>
-                    </div>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('/static/assets/img/posts-bg.png')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>A Love Story</h1>
+                    <span class="subheading">La historia de dos babosos.</span>
                 </div>
             </div>
         </div>
-    </header>
-     <!-- Main Content-->
-     <main class="mb-4">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    {% for curso in cursos %}
-                        <!-- Post preview-->
-                        <div class="post-preview">
-                            <a href="{% url 'detalhe_curso' curso.pk %}">
-                                <h2 class="post-title">{{ curso.titulo }}</h2>
-                                <h3 class="post-subtitle">{{ curso.subtitulo }}</h3>
-                            </a>
-                            <p class="post-meta">
-                                Postado por
-                                <b>{{ curso.autor.first_name }}</b>
-                                em {{ curso.data_publicacao|date:"d/m/Y, à\s H:i" }}.
-                            </p>
-                        </div>
-                        {% if not forloop.last %}
-                        <!-- Divider-->
-                        <hr class="my-4" />
-                        {% endif %}
-                        {% empty %}
-                        <div class="post-preview">
-                            <p>Nenhum item cadastrado no momento.</p>
-                        </div>
-                    {% endfor %}
-                    
+    </div>
+</header>
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                {% for post in posts %}
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <a href="{% url 'detalhe_post' post.pk %}">
+                        <h2 class="post-title">{{ post.titulo }}</h2>
+                        <h3 class="post-subtitle">{{ post.subtitulo }}</h3>
+                    </a>
+                    <p class="post-meta">
+                        Publicado por
+                        <b>{{ post.autor.first_name }}</b>
+                        em {{ post.data_publicacao|date:"d/m/Y, à\s H:i" }}.
+                    </p>
                 </div>
+                {% if not forloop.last %}
+                <!-- Divider-->
+                <hr class="my-4" />
+                {% endif %}
+                {% empty %}
+                <div class="post-preview">
+                    <p>No hay artículos registrados en este momento.</p>
+                </div>
+                {% endfor %}
+
             </div>
         </div>
-    </main>
+    </div>
+</main>
 {% endblock %}
